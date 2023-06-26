@@ -1,12 +1,12 @@
 @import "../main";
 @import url(../base/_fonts.scss);
 
-body{
-  font-family: 'Optima';
+body {
+  font-family: "Optima";
 }
 #header {
   background: #ffffff;
-  height: 100px;
+  height: 150px;
 }
 .header-container {
   #navbar {
@@ -51,6 +51,7 @@ body{
         color: white;
         font-size: 20px;
         transition: 0.4s;
+        cursor: pointer;
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
       }
       .history-btn {
@@ -68,6 +69,88 @@ body{
           box-shadow: 0px 10px 50px -10px gray;
           background-color: #0064c9;
           transform: translateY(-2px);
+        }
+      }
+    }
+  }
+}
+
+main {
+}
+
+.table-container {
+  #table {
+    width: 100%;
+    thead {
+      background-color: #172f6c;
+      .th-tr {
+        th {
+          font-size: 20px;
+          text-align: left;
+          padding: 30px 0;
+          color: white;
+        }
+        .first-th {
+          padding-left: 25px;
+          width: 60px;
+        }
+        .name-th {
+          width: 300px;
+        }
+        .order-th {
+          width: 250px;
+        }
+        .didline-th {
+          width: 200px;
+        }
+        .getOrder-th {
+          width: 250px;
+        }
+        .price-th {
+          width: 150px;
+        }
+        .last-th {
+          text-align: right;
+          padding-right: 25px;
+          width: 125px;
+        }
+      }
+    }
+    tbody {
+      border: 1px solid #bfbdbd;
+      .tb-tr {
+        td {
+          font-size: 20px;
+          text-align: left;
+          padding: 30px 0;
+          vertical-align: middle;
+          font-weight: 700;
+          border-bottom: 1px solid #bfbdbd;
+          background: #fff;
+        }
+        .first-td {
+          padding-left: 25px;
+          width: 60px;
+        }
+        .didline-td {
+          color: red;
+          font-size: 24px;
+        }
+        .getOrder-td {
+          opacity: 0.6;
+        }
+        .last-td {
+          text-align: right;
+          padding: 0;
+          cursor: pointer;
+          img {
+            margin-right: 10px;
+          }
+          &:hover {
+            img {
+              transform: scale(1.1);
+            }
+          }
         }
       }
     }
