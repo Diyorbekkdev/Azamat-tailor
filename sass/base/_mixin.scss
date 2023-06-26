@@ -1,0 +1,158 @@
+@use "sass:math";
+
+@function percent($px, $from) {
+  $result: math.div($px, $from) * 100%;
+  @return $result;
+}
+
+@mixin media($size) {
+  @media only screen and (max-width: $size) {
+    @content;
+  }
+}
+
+//REM
+@function rem($px) {
+  $result: math.div($px, 16) + rem;
+  @return $result;
+}
+//EM
+@function em($px, $current: 16) {
+  $result: math.div($px, $current) + em;
+  @return $result;
+}
+
+@mixin gridCards($type: fit, $min: 280px, $max: 1fr, $gap: 30px) {
+  display: grid;
+  gap: $gap;
+  grid-template-columns: repeat(auto-#{$type}, minmax($min, $max));
+}
+
+@mixin adaptiveValue(
+  $property,
+  $startSize,
+  $minSize,
+  $widthFrom: $containerWidth,
+  $widthTo: $minWidth,
+  $keepSize: 0
+) {
+  $addSize: math.div($startSize - $minSize, 16);
+
+  @if ($widthFrom == $containerWidth and $maxWidthContainer == 0) {
+    $widthFrom: $maxWidth;
+  }
+  @if ($minSize <= 0) {
+    $minSize: 0.0001;
+  }
+  @if ($startSize <= 0) {
+    $startSize: 0.0001;
+  }
+
+  $widthFromMedia: em($widthFrom);
+  $widthToMedia: em($widthTo);
+
+  $slope: math.div(($startSize - $minSize), ($widthFrom - $widthTo));
+  $yIntersection: -$widthTo * $slope + $minSize;
+  $flyValue: #{rem($yIntersection)}" + " #{$slope * 100}vw;
+
+  $propertyValue: #{"clamp(" rem($minSize) "," $flyValue "," rem($startSize) ")"};
+  @if ($minSize > $startSize) {
+    $propertyValue: #{"clamp("
+      rem($startSize)
+      ","
+      $flyValue
+      ","
+      rem($minSize)
+      ")"};
+  }
+
+  @if $widthFrom ==
+    $containerWidth or
+    $widthFrom ==
+    $maxWidth or
+    $keepSize ==
+    1 or
+    $keepSize ==
+    2
+  {
+    @media (min-width: $widthFromMedia) {
+      #{$property}: rem($startSize);
+    }
+  }
+  @media (min-width: $widthToMedia) and (max-width: $widthFromMedia) {
+    @supports (#{$property}: $propertyValue) {
+      #{$property}: $propertyValue;
+    }
+    @supports not (#{$property}: $propertyValue) {
+      #{$property}: calc(
+        #{rem($minSize)} + #{$addSize} * (100vw - #{rem($widthTo)}) / #{math.div(
+            $widthFrom,
+            16
+          ) - math.div($widthTo, 16)}
+      );
+    }
+  }
+  @if $widthTo == $minWidth or $keepSize == 1 or $keepSize == 3 {
+    @media (max-width: $widthToMedia) {
+      #{$property}: rem($minSize);
+    }
+  }
+}
+
+// .text {
+// 	@include adaptiveValue(font-size, 20px, 12px, 800px, 320px, 0);
+//   }
+
+@mixin flexboxinline() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: inline-flex;
+  font-size: 0;
+}
+
+@mixin anim($time, $delay) {
+  -webkit-transition: all $time ease $delay;
+  -moz-transition: all $time ease $delay;
+  -ms-transition: all $time ease $delay;
+  -o-transition: all $time ease $delay;
+}
+
+// placeholders
+%df {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+%sec_heading {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 58px;
+  text-align: center;
+  color: #211f54;
+}
+
+%info-text {
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 30px;
+  text-align: center;
+  color: #6e7191;
+}
+
+%nav-link {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30px;
+  color: #211f54;
+}
+
+%glass {
+  background: rgba(255, 255, 255, 0.17);
+  border-radius: 8px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.8px);
+  -webkit-backdrop-filter: blur(8.8px);
+}
