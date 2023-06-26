@@ -19,7 +19,7 @@ body {
 }
 
 .contain {
-  width: 1440px;
+  width: 1600px;
   display: flex;
   margin: 0 auto;
   justify-content: end;
@@ -27,7 +27,7 @@ body {
   background: url(../../assets/img/logInBg.jpg);
   background-size: cover;
 
-  @include media(1440px) {
+  @include media(1600px) {
     width: 100%;
   }
 }

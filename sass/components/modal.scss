@@ -3,20 +3,21 @@
 
 .body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #140c36;
+  background: #ffb8b822;
 }
 $purple: #7158e2;
 
 .modal {
   margin-top: 20px;
   padding: 25px 35px;
-  background: rgb(216, 239, 231);
+  background: rgba(255, 255, 255, 0.858);
   width: 600px;
-  display: flex;
   border-radius: 10px;
   overflow: hidden;
+  box-shadow: 4px 4px 83px 0px rgba(34, 60, 80, 0.2);
   .modal__wrapper {
     display: flex;
     flex-direction: column;
@@ -47,8 +48,10 @@ $purple: #7158e2;
             @extend %df;
             border-radius: 5px;
             width: 100%px;
+            box-shadow: 4px 4px 83px 0px rgba(34, 60, 80, 0.2);
+            border: 1px solid #cccccc5a;
             &.active {
-              border-bottom: 2px solid $purple;
+              border-bottom: 1px solid $purple;
             }
             input {
               font-family: "Optima";
@@ -56,6 +59,7 @@ $purple: #7158e2;
               border: none;
               outline: none;
               padding: 5px;
+              
             }
             i {
               color: $purple;
@@ -115,6 +119,8 @@ $purple: #7158e2;
       resize: vertical;
       max-height: 150px;
       border-radius: 7px;
+      box-shadow: 4px 4px 83px -33px rgba(34, 60, 80, 0.2);
+      border: 1px solid #cccccc5a;
     }
     input[type="date"] {
       font-family: "Optima";
@@ -123,6 +129,8 @@ $purple: #7158e2;
       border: none;
       border-radius: 7px;
       width: 50%;
+      box-shadow: 4px 4px 83px -33px rgba(34, 60, 80, 0.2);
+      border: 1px solid #cccccc5a;
     }
     .price {
       font-family: "Optima";
@@ -131,8 +139,11 @@ $purple: #7158e2;
       border: none;
       border-radius: 7px;
       width: 50%;
+      box-shadow: 4px 4px 83px -33px rgba(34, 60, 80, 0.2);
+      border: 1px solid #cccccc5a;
     }
     .priority {
+        width:15%;
       .cbx {
         display: flex;
         align-items: center;
@@ -176,6 +187,7 @@ $purple: #7158e2;
         width: 20px;
         height: 20px;
         border-radius: 2px;
+        border: 1px solid #ccc !important;
       }
 
       .front {
@@ -226,7 +238,4 @@ $purple: #7158e2;
       }
     }
   }
-}
-.second{
-    transform: translateX(500px);
 }
