@@ -1,0 +1,17 @@
+%df{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+%df_col{
+    display: flex;
+    flex-direction: column;
+}
+
+%modal_label{
+    font-family: 'Optima';
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 100%
+}
