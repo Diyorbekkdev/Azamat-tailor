@@ -1,1 +1,174 @@
 @import '../main';
+
+$bg: #EDF2F0;
+
+$neu-1: #ecf0f3;
+$neu-2: #d1d9e6;
+
+$white: #f9f9f9;
+$gray: #a0a5a8;
+$black: #181818;
+
+$purple: #4B70E2;
+
+/* Generic */
+body {
+  width: 100%;
+  height: 100vh;
+  background: $neu-2;
+}
+
+.contain {
+  width: 1440px;
+  display: flex;
+  margin: 0 auto;
+  justify-content: end;
+  align-items: center;
+  background: url(../../assets/img/logInBg.jpg);
+  background-size: cover;
+
+  @include media(1440px) {
+    width: 100%;
+  }
+}
+
+/**/
+.main {
+  width: 500px;
+  height: 100vh;
+  background-color: $neu-1;
+  border-radius: 12px 0px 0px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    display: none;
+  }
+
+  @include media(800px) {
+    border-radius: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.466);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    img {
+      display: block;
+    }
+  }
+
+  .form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+
+    label {
+      margin: 5px;
+      font-size: 20px;
+      color: black;
+    }
+
+    #userName,
+    #password {
+      width: 350px;
+      height: 40px;
+      margin: 8px 0;
+
+      padding: 5px 30px;
+      font-size: 15px;
+      letter-spacing: .17px;
+      border: none;
+      outline: none;
+
+      background-color: $neu-1;
+      transition: .25s ease;
+      border-radius: 8px;
+
+      box-shadow:
+        inset 2px 2px 4px $neu-2,
+        inset -2px -2px 4px $white;
+
+      &:focus {
+        box-shadow:
+          inset 4px 4px 4px $neu-2,
+          inset -4px -4px 4px $white;
+        transform: scale(1.05);
+      }
+    }
+
+    @include media(400px) {
+
+      #userName,
+      #password {
+        width: 90%;
+        font-size: 14px;
+      }
+
+      label {
+        font-size: 18px;
+      }
+    }
+
+  }
+
+  .title {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 3;
+    color: $black;
+  }
+
+  .button {
+    cursor: pointer;
+    padding: 18px 50px;
+    border-radius: 25px;
+    margin-top: 50px;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1.15px;
+
+    background-color: $purple;
+    color: $white;
+
+    border: none;
+    outline: none;
+    transition: .3s;
+
+    &:hover {
+      transform: scale(1.03);
+      background: #315ee5;
+    }
+
+  }
+
+  @include media(400px) {
+    .title {
+      line-height: 2;
+      font-size: 34px;
+    }
+
+    .button {
+      margin-top: 20px;
+      font-size: 14px;
+      padding: 16px 40px;
+    }
+  }
+}
+.pass{
+  position: relative;
+}
+
+.fa-eye,.fa-eye-slash{
+  position: absolute;
+  right: 10px;
+  top: 20px;
+  cursor: pointer;
+  opacity: 0.6;
+  &:hover{
+    opacity: 1;
+  }
+}

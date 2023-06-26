@@ -1,11 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" dir="ltr">
+
 <head>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="assets/img/logInLogo.svg">
+  <link rel="stylesheet" href="css/login.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <title>LogIn</title>
 </head>
+
 <body>
-  
+  <div class="contain">
+    <div class="main">
+      <img src="assets/img/logInLogo.svg" alt="LogInLogo">
+      <h2 class="title">Websitega O'tish</h2>
+      <form class="form" id="b-form" method="" action="">
+        <label for="userName">UserName</label>
+        <input id="userName" type="text" required placeholder="UserName">
+        <label for="password">Parol</label>
+        <div class="pass">
+          <input id="password" required type="password" placeholder="Parol" minlength="4" maxlength="10">
+          <i class="fa-regular fa-eye"></i>
+        </div>
+        <button class="button" type="">KIRISH</button>
+      </form>
+    </div>
+  </div>
+  <script src="./js/login.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
 </body>
+
 </html>
