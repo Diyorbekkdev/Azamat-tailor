@@ -1,111 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="css/modal.min.css" />
-  </head>
-  <body class="body">
-    <!-- modal start -->
-    <div id="modal" class="modal">
-      <div class="modal__wrapper">
-        <h1>Buyurtma Olish</h1>
-        <div class="form__group">
-          <label  for="Mijoz">Mijoz</label>
-          <div class="search__wrapper">
-            <div class="search__bar_wrapper">
-                <div class="search-bar">
-                    <input autocomplete="additional-name" id="inputTxt" type="text" placeholder="Search ..." />
-                    <i class="bi bi-search"></i>
-                </div>
-                <div class="customer_list"></div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="css/modal.min.css" />
+</head>s
+
+<body class="body">
+  <!-- modal start -->
+  <div id="modal" class="modal">
+    <div class="modal__wrapper">
+      <h1>Buyurtma Olish</h1>
+      <div class="form__group">
+        <label for="Mijoz">Mijoz</label>
+        <div class="search__wrapper">
+          <div class="search__bar_wrapper">
+            <div class="search-bar">
+              <input autocomplete="additional-name" id="inputTxt" type="text" placeholder="Search ..." />
+              <i class="bi bi-search"></i>
             </div>
-            <button class="btn add__customer">Yangi</button>
+            <div class="customer_list"></div>
           </div>
-        </div>
-        <div class="form__group">
-            <label class="order" for="order">Buyurtma</label>
-            <textarea class="order__textarea"  name="order" id="order" cols="30" rows="10" placeholder="Buyurtma haqida malumotlar..."></textarea>
-        </div>
-        <div class="form__group">
-            <label for="muddat">Muddat</label>
-            <input class="date" type="date"  name="date" required aria-label="Kun/Oy/Yil">
-        </div>
-        <div class="form__group">
-            <label for="Price">Price</label>
-            <input class="price" type="text"  name="date" required placeholder="0.00 sum">
-        </div>
-        <div class="priority">
-            <label for="cbx" class="cbx">
-                  Priority  
-                  <div class="checkmark">
-                  <input type="checkbox" id="cbx" checked="checked">
-                  <div class="flip">
-                    <div class="front"></div>
-                      <div class="back">
-                        <svg viewBox="0 0 16 14" height="14" width="16">
-                          <path d="M2 8.5L6 12.5L14 1.5"></path>
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-            </label>
-        </div>
-        <div class="check__wrapper">
-            <button class="confirm">Tasdiqlash</button>
+          <button class="btn add__customer">Yangi</button>
         </div>
       </div>
-      <div class="modal__wrapper second">
-        <h1>Buyurtma Olish</h1>
-        <div class="form__group">
-          <label  for="Mijoz">Mijoz</label>
-          <div class="search__wrapper">
-            <div class="search__bar_wrapper">
-                <div class="search-bar">
-                    <input autocomplete="additional-name" id="inputTxt" type="text" placeholder="Search ..." />
-                    <i class="bi bi-search"></i>
-                </div>
-                <div class="customer_list"></div>
+      <div class="form__group">
+        <label class="order" for="order">Buyurtma</label>
+        <textarea class="order__textarea" name="order" id="order" cols="30" rows="10"
+          placeholder="Buyurtma haqida malumotlar..."></textarea>
+      </div>
+      <div class="form__group">
+        <label for="muddat">Muddat</label>
+        <input class="date" type="date" name="date" required aria-label="Kun/Oy/Yil">
+      </div>
+      <div class="form__group">
+        <label for="Price">Price</label>
+        <input class="price" type="text" name="date" required placeholder="0.00 sum">
+      </div>
+      <div class="priority">
+        <label for="cbx" class="cbx">
+          Priority
+          <div class="checkmark">
+            <input type="checkbox" id="cbx" checked="checked">
+            <div class="flip">
+              <div class="front"></div>
+              <div class="back">
+                <svg viewBox="0 0 16 14" height="14" width="16">
+                  <path d="M2 8.5L6 12.5L14 1.5"></path>
+                </svg>
+              </div>
             </div>
-            <button class="btn add__customer">Yangi</button>
           </div>
-        </div>
-        <div class="form__group">
-            <label class="order" for="order">Buyurtma</label>
-            <textarea class="order__textarea"  name="order" id="order" cols="30" rows="10" placeholder="Buyurtma haqida malumotlar..."></textarea>
-        </div>
-        <div class="form__group">
-            <label for="muddat">Muddat</label>
-            <input class="date" type="date"  name="date" required aria-label="Kun/Oy/Yil">
-        </div>
-        <div class="form__group">
-            <label for="Price">Price</label>
-            <input class="price" type="text"  name="date" required placeholder="0.00 sum">
-        </div>
-        <div class="priority">
-            <label for="cbx" class="cbx">
-                  Priority  
-                  <div class="checkmark">
-                  <input type="checkbox" id="cbx" checked="checked">
-                  <div class="flip">
-                    <div class="front"></div>
-                      <div class="back">
-                        <svg viewBox="0 0 16 14" height="14" width="16">
-                          <path d="M2 8.5L6 12.5L14 1.5"></path>
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-            </label>
-        </div>
-        <div class="check__wrapper">
-            <button class="confirm">Tasdiqlash</button>
-        </div>
+        </label>
+      </div>
+      <div class="check__wrapper">
+        <button class="confirm">Tasdiqlash</button>
       </div>
     </div>
-    <!-- modal end -->
+    <div class="modal__wrapper second">
+      <h1>Buyurtma Olish</h1>
+      <div class="form__group">
+        <label for="Mijoz">Mijoz</label>
+        <div class="search__wrapper">
+          <div class="search__bar_wrapper">
+            <div class="search-bar">
+              <input autocomplete="additional-name" id="inputTxt" type="text" placeholder="Search ..." />
+              <i class="bi bi-search"></i>
+            </div>
+            <div class="customer_list"></div>
+          </div>
+          <button class="btn add__customer">Yangi</button>
+        </div>
+      </div>
+      <div class="form__group">
+        <label class="order" for="order">Buyurtma</label>
+        <textarea class="order__textarea" name="order" id="order" cols="30" rows="10"
+          placeholder="Buyurtma haqida malumotlar..."></textarea>
+      </div>
+      <div class="form__group">
+        <label for="muddat">Muddat</label>
+        <input class="date" type="date" name="date" required aria-label="Kun/Oy/Yil">
+      </div>
+      <div class="form__group">
+        <label for="Price">Price</label>
+        <input class="price" type="text" name="date" required placeholder="0.00 sum">
+      </div>
+      <div class="priority">
+        <label for="cbx" class="cbx">
+          Priority
+          <div class="checkmark">
+            <input type="checkbox" id="cbx" checked="checked">
+            <div class="flip">
+              <div class="front"></div>
+              <div class="back">
+                <svg viewBox="0 0 16 14" height="14" width="16">
+                  <path d="M2 8.5L6 12.5L14 1.5"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </label>
+      </div>
+      <div class="check__wrapper">
+        <button class="confirm">Tasdiqlash</button>
+      </div>
+    </div>
+  </div>
+  <!-- modal end -->
 
-    <script src="js/modal.js"></script>
-  </body>
+  <script src="js/modal.js"></script>
+</body>
+
 </html>
