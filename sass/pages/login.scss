@@ -72,6 +72,7 @@ body {
       color: black;
     }
 
+
     #userName,
     #password {
       width: 350px;
@@ -106,6 +107,14 @@ body {
       #password {
         width: 90%;
         font-size: 14px;
+      }
+
+      div {
+        width: 90%;
+
+        #password {
+          width: 100%;
+        }
       }
 
       label {
@@ -158,17 +167,20 @@ body {
     }
   }
 }
-.pass{
+
+.pass {
   position: relative;
 }
 
-.fa-eye,.fa-eye-slash{
+.fa-eye,
+.fa-eye-slash {
   position: absolute;
   right: 10px;
   top: 20px;
   cursor: pointer;
   opacity: 0.6;
-  &:hover{
+
+  &:hover {
     opacity: 1;
   }
 }
