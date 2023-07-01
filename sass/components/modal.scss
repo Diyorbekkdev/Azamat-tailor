@@ -22,19 +22,41 @@ $purple: #7158e2;
     display: flex;
     flex-direction: column;
     gap: 25px;
-    h1{
-        padding-bottom: 15px;
-        font-family: 'Optima';
-        font-size: 25px;
-        font-weight: bold;
-        border-bottom: 1px solid rgba(190, 190, 190, 0.799);
-
+    h1 {
+      padding-bottom: 15px;
+      font-family: "Optima";
+      font-size: 25px;
+      font-weight: bold;
+      border-bottom: 1px solid rgba(190, 190, 190, 0.799);
     }
     .form__group {
       @extend %df_col;
       gap: 10px;
       label {
         @extend %modal_label;
+      }
+      .telephone__items {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        .PhoneNumberItem {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          span {
+            @extend %modal_label;
+          }
+        }
+      }
+      .exit {
+        i {
+          display: flex;
+          align-items: flex-end;
+          justify-content: flex-end;
+          cursor: pointer;
+          color: red;
+          font-size: 27px;
+        }
       }
       .search__wrapper {
         @extend %df;
@@ -59,7 +81,6 @@ $purple: #7158e2;
               border: none;
               outline: none;
               padding: 5px;
-              
             }
             i {
               color: $purple;
@@ -142,8 +163,33 @@ $purple: #7158e2;
       box-shadow: 4px 4px 83px -33px rgba(34, 60, 80, 0.2);
       border: 1px solid #cccccc5a;
     }
+    .newOrder {
+      font-family: "Optima";
+      padding: 12px;
+      outline: none;
+      border: none;
+      border-radius: 7px;
+      width: 50%;
+      box-shadow: 4px 4px 83px -33px rgba(34, 60, 80, 0.2);
+      border: 1px solid #cccccc5a;
+    }
+    .client {
+      font-family: "Optima";
+      padding: 12px;
+      outline: none;
+      border: none;
+      border-radius: 7px;
+      width: 50%;
+      box-shadow: 4px 4px 83px -33px rgba(34, 60, 80, 0.2);
+      border: 1px solid #cccccc5a;
+    }
+    .newName,
+    .firstNumber,
+    .client {
+      width: 100%;
+    }
     .priority {
-        width:15%;
+      width: 15%;
       .cbx {
         display: flex;
         align-items: center;
@@ -217,8 +263,8 @@ $purple: #7158e2;
       }
     }
     .check__wrapper {
-        width: 100%;
-        text-align: end;
+      width: 100%;
+      text-align: end;
       .confirm {
         padding: 11px 25px;
         border-radius: 7px;
@@ -238,4 +284,10 @@ $purple: #7158e2;
       }
     }
   }
+}
+
+.div {
+  width: 100%;
+  height: 1px;
+  background: #cccccc5a;
 }
