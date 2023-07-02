@@ -7,9 +7,9 @@ form.addEventListener("submit", function (e) {
   e.preventDefault();
   userInfo = {
     userName: formElement.userName.value,
-    password: formElement.userName.value,
+    password: formElement.password.value,
   };
-  console.log(userInfo);
+  login(userInfo);
   form.reset();
 });
 
@@ -25,6 +25,24 @@ const showPassword = (trigger) => {
       trigger.classList.add("fa-eye");
     }
   });
+};
+
+const login = (userObj) => {
+  axios
+    .post(
+      `https://topkitob.com/api/auth/login`,userObj,
+      {
+        Headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
+    .then((res) => {
+      if(res.statusText==="OK"){
+        localStorage.setItem("token", JSON.stringify(res.data.token));
+        window.location.replace('admin.html');
+      }
+    });
 };
 
 showPassword(triggerPassword);

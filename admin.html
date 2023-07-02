@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Manager page</title>
     <link rel="stylesheet" href="./css/admin.min.css" />
+    <link rel="stylesheet" href="./css/modal.min.css" />
   </head>
   <body>
-    <header id="header">
+    <header id="admin-header">
       <div class="container header-container">
         <nav id="navbar">
           <div class="logo">
@@ -33,6 +34,136 @@
         </nav>
       </div>
     </header>
+    <div class="modal-overlay">
+      <div id="modal" class="modal">
+        <div class="modal__wrapper">
+          <h1>Buyurtma Olish</h1>
+          <div class="form__group">
+            <label for="Mijoz">Mijoz</label>
+            <div class="search__wrapper">
+              <div class="search__bar_wrapper">
+                <div class="search-bar">
+                  <input
+                    autocomplete="additional-name"
+                    id="inputTxt"
+                    type="text"
+                    placeholder="Search ..."
+                  />
+                  <i class="bi bi-search"></i>
+                </div>
+                <div class="customer_list"></div>
+              </div>
+              <button id="addCustomer" class="btn add__customer">Yangi</button>
+            </div>
+          </div>
+          <div class="form__group">
+            <label class="order" for="order">Buyurtma</label>
+            <textarea
+              class="order__textarea"
+              name="order"
+              id="order"
+              cols="30"
+              rows="10"
+              placeholder="Buyurtma haqida malumotlar..."
+            ></textarea>
+          </div>
+          <div class="form__group">
+            <label for="muddat">Muddat</label>
+            <input
+              class="date"
+              type="date"
+              name="date"
+              required
+              aria-label="Kun/Oy/Yil"
+            />
+          </div>
+          <div class="form__group">
+            <label for="Price">Price</label>
+            <input
+              class="price"
+              type="text"
+              name="date"
+              required
+              placeholder="0.00 sum"
+            />
+          </div>
+          <div class="priority">
+            <label for="cbx" class="cbx">
+              Priority
+              <div class="checkmark">
+                <input type="checkbox" id="cbx" checked="checked" />
+                <div class="flip">
+                  <div class="front"></div>
+                  <div class="back">
+                    <svg viewBox="0 0 16 14" height="14" width="16">
+                      <path d="M2 8.5L6 12.5L14 1.5"></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </label>
+          </div>
+          <div class="check__wrapper">
+            <button class="confirm">Tasdiqlash</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="modalNew" class="modal modalNew">
+      <div class="modal__wrapper">
+        <div class="form__group">
+          <div class="exit">
+            <i class="bi bi-x-lg"></i>
+          </div>
+          <label for="Ism">Ism</label>
+          <div class="forms">
+            <div class="inputName">
+              <input class="newOrder newName" type="text" />
+            </div>
+          </div>
+        </div>
+        <div class="form__group">
+          <label for="Telefon">Telefon</label>
+          <div class="telephone__items">
+            <div class="PhoneNumberItem">
+              <span>1.</span
+              ><input
+                id="phone"
+                required
+                pattern="^\+998(33|7(0|1|7)|88|9\d{1})(\d{7})$"
+                class="newOrder firstNumber"
+                type="tel"
+              />
+            </div>
+            <div class="PhoneNumberItem">
+              <span>2.</span
+              ><input
+                id="phone"
+                required
+                pattern="^\+998(33|7(0|1|7)|88|9\d{1})(\d{7})$"
+                class="newOrder firstNumber"
+                type="tel"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="form__group">
+          <label class="additionalInfo" for="additionalInfo"
+            >Qo’shimcha ma’lumot</label
+          >
+          <textarea
+            class="order__textarea"
+            name="order"
+            id="order"
+            cols="30"
+            rows="10"
+          ></textarea>
+        </div>
+        <div class="check__wrapper">
+          <button class="confirm">Tasdiqlash</button>
+        </div>
+      </div>
+    </div>
     <main>
       <section>
         <div class="container table-container">
@@ -50,72 +181,71 @@
             </thead>
             <tbody>
               <tr class="tb-tr">
-                <td class="table-data   first-td">1</td>
-                <td class="table-data">Diyorbek aka</td>
-                <td class="table-data ">Kostyum-shim</td>
-                <td class="table-data didline-td">02 / 10/ 2023</td>
+                <td class="table-data first-td">1</td>
+                <td class="table-data">
+                  Diyorbek aka <br />
+                  <span id="phoneNumber">+998 91 774 24 77</span>
+                </td>
+                <td class="table-data">Kostyum-shim</td>
+                <td class="table-data didline-td">
+                  02 / 10/ 2023
+                  <span class="tooltiptext">1 hafta qoldi</span>
+                </td>
                 <td class="table-data getOrder-td">25 / 06 / 2023</td>
-                <td class="table-data ">100 $</td>
-                <td class="table-data last-td"><img src="./assets/icons/more_vert_FILL0_wght400_GRAD0_opsz48.svg" alt=""></td>
+                <td class="table-data">100 $</td>
+                <td class="table-data last-td">
+                  <img
+                    src="./assets/icons/more_vert_FILL0_wght400_GRAD0_opsz48.svg"
+                    alt=""
+                  />
+                </td>
               </tr>
               <tr class="tb-tr">
-                <td class="table-data   first-td">1</td>
-                <td class="table-data">Umrzoq aka</td>
-                <td class="table-data ">Kostyum-shim</td>
-                <td class="table-data didline-td">02 / 10/ 2023</td>
+                <td class="table-data first-td">1</td>
+                <td class="table-data">
+                  Diyorbek aka <br />
+                  <span id="phoneNumber">+998 91 774 24 77</span>
+                </td>
+                <td class="table-data">Kostyum-shim</td>
+                <td class="table-data didline-td">
+                  02 / 10/ 2023
+                  <span class="tooltiptext">18 kun qoldi</span>
+                </td>
                 <td class="table-data getOrder-td">25 / 06 / 2023</td>
-                <td class="table-data ">100 $</td>
-                <td class="table-data last-td"><img src="./assets/icons/more_vert_FILL0_wght400_GRAD0_opsz48.svg" alt=""></td>
+                <td class="table-data">100 $</td>
+                <td class="table-data last-td">
+                  <img
+                    src="./assets/icons/more_vert_FILL0_wght400_GRAD0_opsz48.svg"
+                    alt=""
+                  />
+                </td>
               </tr>
               <tr class="tb-tr">
-                <td class="table-data   first-td">1</td>
-                <td class="table-data">Abdulaziz aka</td>
-                <td class="table-data ">Kostyum-shim</td>
-                <td class="table-data didline-td">02 / 10/ 2023</td>
+                <td class="table-data first-td">1</td>
+                <td class="table-data">
+                  Diyorbek aka <br />
+                  <span id="phoneNumber">+998 91 774 24 77</span>
+                </td>
+                <td class="table-data">Kostyum-shim</td>
+                <td class="table-data didline-td">
+                  02 / 10/ 2023
+                  <span class="tooltiptext">1 oy qoldi</span>
+                </td>
                 <td class="table-data getOrder-td">25 / 06 / 2023</td>
-                <td class="table-data ">100 $</td>
-                <td class="table-data last-td"><img src="./assets/icons/more_vert_FILL0_wght400_GRAD0_opsz48.svg" alt=""></td>
-              </tr>
-              <tr class="tb-tr">
-                <td class="table-data   first-td">1</td>
-                <td class="table-data">Nodirbek aka</td>
-                <td class="table-data ">Kostyum-shim</td>
-                <td class="table-data didline-td">02 / 10/ 2023</td>
-                <td class="table-data getOrder-td">25 / 06 / 2023</td>
-                <td class="table-data ">100 $</td>
-                <td class="table-data last-td"><img src="./assets/icons/more_vert_FILL0_wght400_GRAD0_opsz48.svg" alt=""></td>
-              </tr>
-              <tr class="tb-tr">
-                <td class="table-data   first-td">1</td>
-                <td class="table-data">Diyorbek aka</td>
-                <td class="table-data ">Kostyum-shim</td>
-                <td class="table-data didline-td">02 / 10/ 2023</td>
-                <td class="table-data getOrder-td">25 / 06 / 2023</td>
-                <td class="table-data ">100 $</td>
-                <td class="table-data last-td"><img src="./assets/icons/more_vert_FILL0_wght400_GRAD0_opsz48.svg" alt=""></td>
-              </tr>
-              <tr class="tb-tr">
-                <td class="table-data   first-td">1</td>
-                <td class="table-data">Diyorbek aka</td>
-                <td class="table-data ">Kostyum-shim</td>
-                <td class="table-data didline-td">02 / 10/ 2023</td>
-                <td class="table-data getOrder-td">25 / 06 / 2023</td>
-                <td class="table-data ">100 $</td>
-                <td class="table-data last-td"><img src="./assets/icons/more_vert_FILL0_wght400_GRAD0_opsz48.svg" alt=""></td>
-              </tr>
-              <tr class="tb-tr">
-                <td class="table-data   first-td">1</td>
-                <td class="table-data">Diyorbek aka</td>
-                <td class="table-data ">Kostyum-shim</td>
-                <td class="table-data didline-td">02 / 10/ 2023</td>
-                <td class="table-data getOrder-td">25 / 06 / 2023</td>
-                <td class="table-data ">100 $</td>
-                <td class="table-data last-td"><img src="./assets/icons/more_vert_FILL0_wght400_GRAD0_opsz48.svg" alt=""></td>
+                <td class="table-data">100 $</td>
+                <td class="table-data last-td">
+                  <img
+                    src="./assets/icons/more_vert_FILL0_wght400_GRAD0_opsz48.svg"
+                    alt=""
+                  />
+                </td>
               </tr>
             </tbody>
           </table>
         </div>
       </section>
     </main>
+
+    <script src="./js/modal.js"></script>
   </body>
 </html>
