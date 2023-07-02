@@ -1,15 +1,13 @@
 const tableRow = document.querySelector(".table-row");
 
-
-
-function getTableRow({ id, name, phone1 ,}) {
+function getTableRow({ id, customer, phone1, createdAt, endDate }) {
   return `
     <tr class="tb-tr">
       <td class="table-data   first-td">1</td>
-      <td class="table-data">Diyorbek aka</td>
+      <td class="table-data">${customer}</td>
       <td class="table-data ">Kostyum-shim</td>
-      <td class="table-data didline-td">02 / 10/ 2023</td>
-      <td class="table-data getOrder-td">25 / 06 / 2023</td>
+      <td class="table-data didline-td">${endDate}</td>
+      <td class="table-data getOrder-td">${createdAt}</td>
       <td class="table-data ">100 $</td>
       <td class="table-data last-td"><img src="./assets/icons/more_vert_FILL0_wght400_GRAD0_opsz48.svg" alt=""></td>
     </tr>
@@ -19,19 +17,29 @@ function getTableRow({ id, name, phone1 ,}) {
 function getData(tailor) {
   let token = JSON.parse(localStorage.getItem("token"));
   console.log(token);
-  axios.post(
-    "https://topkitob.com/api/orders/in_process",
-    {},
-    {
-      Headers: {
-        // 'accept': 'application/json',
-        "Authorization": `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-    }
-  ).then((res)=>{
-    console.log(res);
-  });
+  axios
+    .post(
+      "https://topkitob.com/api/orders/in_process",
+      {},
+      {
+        headers: {
+          accept: "application/json",
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      }
+    )
+    .then((res) => {
+      console.log(res);
+      const filteredCustomer = res.data.page.items;
+      tableRow.innerHTML = "";
+      filteredCustomer.map((el) => {
+        const createdAt = new Date(el.createdAt).toLocaleDateString();
+        const endDate = new Date(el.endDate).toLocaleDateString();
+
+        tableRow.innerHTML += getTableRow(el);
+      });
+    });
 }
 
 const users = [
