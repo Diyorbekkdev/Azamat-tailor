@@ -1,70 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Manager page</title>
-  <link rel="stylesheet" href="./css/admin.min.css" />
-</head>
-
-<body>
-  <header id="header">
-    <div class="container header-container">
-      <nav id="navbar">
-        <div class="logo">
-          <a href="./main.html"><img src="./assets/img/logo-light.png" alt="logo" /></a>
-        </div>
-        <div class="search">
-          <input type="search" placeholder="Qidirish . . ." id="search" name="search" />
-          <label class="search-icon" for="search"><img src="./assets/icons/icons8-search.svg"
-              alt="search icon" /></label>
-        </div>
-        <div class="nav-right">
-          <button class="nav-right_btn history-btn">TARIX</button>
-          <button class="nav-right_btn add-order-btn">BUYURTMA OLISH</button>
-        </div>
-      </nav>
-    </div>
-  </header>
-  <main>
-    <section>
-      <div class="container table-container">
-        <table id="table">
-          <thead>
-            <tr class="th-tr">
-              <th class="first-th" scope="col">#</th>
-              <th class="name-th" scope="col">MIJOZLAR</th>
-              <th class="order-th" scope="col">BUYURTMA</th>
-              <th class="didline-th" scope="col">MUDDAT</th>
-              <th class="getOrder-th" scope="col">OLINGAN VAQTI</th>
-              <th class="price-th" scope="col">NARX</th>
-              <th class="last-th" scope="col">KO’PROQ</th>
-            </tr>
-          </thead>
-          <tbody class="table-row">
-
-            <tr class="tb-tr">
-              <td class="table-data   first-td">1</td>
-              <td class="table-data">Diyorbek aka</td>
-              <td class="table-data ">Kostyum-shim</td>
-              <td class="table-data didline-td">02 / 10/ 2023</td>
-              <td class="table-data getOrder-td">25 / 06 / 2023</td>
-              <td class="table-data ">100 $</td>
-              <td class="table-data last-td"><img src="./assets/icons/more_vert_FILL0_wght400_GRAD0_opsz48.svg" alt="">
-              </td>
-            </tr>
-
-          </tbody>
-        </table>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manager page</title>
+    <link rel="stylesheet" href="./css/admin.min.css" />
+    <link rel="stylesheet" href="./css/modal.min.css">
+  </head>
+  <body>
+    <header id="admin-header">
+      <div class="container header-container">
+        <nav id="navbar">
+          <div class="logo">
+            <a href="./main.html"
+              ><img src="./assets/img/logo-light.png" alt="logo"
+            /></a>
+          </div>
+          <div class="search">
+            <input
+              type="search"
+              placeholder="Qidirish . . ."
+              id="search"
+              name="search"
+            />
+            <label class="search-icon" for="search"
+              ><img src="./assets/icons/icons8-search.svg" alt="search icon"
+            /></label>
+          </div>
+          <div class="nav-right">
+            <button class="nav-right_btn history-btn">TARIX</button>
+            <button class="nav-right_btn add-order-btn">BUYURTMA OLISH</button>
+          </div>
+        </nav>
       </div>
-    </section>
-  </main>
+    </header>
+    <div class="modal-overlay">
+      <div id="modal" class="modal">
+        <div class="modal__wrapper">
+          <h1>Buyurtma Olish</h1>
+          <div class="form__group">
+            <label for="Mijoz">Mijoz</label>
+            <div class="search__wrapper">
+              <div class="search__bar_wrapper">
+                <div class="search-bar">
+                  <input
+                    autocomplete="additional-name"
+                    id="inputTxt"
+                    type="text"
+                    placeholder="Search ..."
+                  />
+                  <i class="bi bi-search"></i>
+                </div>
+                <div class="customer_list"></div>
+              </div>
+              <button class="btn add__customer">Yangi</button>
+            </div>
+          </div>
+          <div class="form__group">
+            <label class="order" for="order">Buyurtma</label>
+            <textarea
+              class="order__textarea"
+              name="order"
+              id="order"
+              cols="30"
+              rows="10"
+              placeholder="Buyurtma haqida malumotlar..."
+            ></textarea>
+          </div>
+          <div class="form__group">
+            <label for="muddat">Muddat</label>
+            <input
+              class="date"
+              type="date"
+              name="date"
+              required
+              aria-label="Kun/Oy/Yil"
+            />
+          </div>
+          <div class="form__group">
+            <label for="Price">Price</label>
+            <input
+              class="price"
+              type="text"
+              name="date"
+              required
+              placeholder="0.00 sum"
+            />
+          </div>
+          <div class="priority">
+            <label for="cbx" class="cbx">
+              Priority
+              <div class="checkmark">
+                <input type="checkbox" id="cbx" checked="checked" />
+                <div class="flip">
+                  <div class="front"></div>
+                  <div class="back">
+                    <svg viewBox="0 0 16 14" height="14" width="16">
+                      <path d="M2 8.5L6 12.5L14 1.5"></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </label>
+          </div>
+          <div class="check__wrapper">
+            <button class="confirm">Tasdiqlash</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <main>
+      <section>
+        <div class="container table-container">
+          <table id="table">
+            <thead>
+              <tr class="th-tr">
+                <th class="first-th" scope="col">#</th>
+                <th class="name-th" scope="col">MIJOZLAR</th>
+                <th class="order-th" scope="col">BUYURTMA</th>
+                <th class="didline-th" scope="col">MUDDAT</th>
+                <th class="getOrder-th" scope="col">OLINGAN VAQTI</th>
+                <th class="price-th" scope="col">NARX</th>
+                <th class="last-th" scope="col">KO’PROQ</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="tb-tr">
+                <td class="table-data first-td">1</td>
+                <td class="table-data">
+                  Diyorbek aka <br />
+                  <span id="phoneNumber">+998 91 774 24 77</span>
+                </td>
+                <td class="table-data">Kostyum-shim</td>
+                <td class="table-data didline-td">
+                  02 / 10/ 2023
+                  <span class="tooltiptext">1 hafta qoldi</span>
+                </td>
+                <td class="table-data getOrder-td">25 / 06 / 2023</td>
+                <td class="table-data">100 $</td>
+                <td class="table-data last-td">
+                  <img
+                    src="./assets/icons/more_vert_FILL0_wght400_GRAD0_opsz48.svg"
+                    alt=""
+                  />
+                </td>
+              </tr>
+              <tr class="tb-tr">
+                <td class="table-data first-td">1</td>
+                <td class="table-data">
+                  Diyorbek aka <br />
+                  <span id="phoneNumber">+998 91 774 24 77</span>
+                </td>
+                <td class="table-data">Kostyum-shim</td>
+                <td class="table-data didline-td">
+                  02 / 10/ 2023
+                  <span class="tooltiptext">18 kun qoldi</span>
+                </td>
+                <td class="table-data getOrder-td">25 / 06 / 2023</td>
+                <td class="table-data">100 $</td>
+                <td class="table-data last-td">
+                  <img
+                    src="./assets/icons/more_vert_FILL0_wght400_GRAD0_opsz48.svg"
+                    alt=""
+                  />
+                </td>
+              </tr>
+              <tr class="tb-tr">
+                <td class="table-data first-td">1</td>
+                <td class="table-data">
+                  Diyorbek aka <br />
+                  <span id="phoneNumber">+998 91 774 24 77</span>
+                </td>
+                <td class="table-data">Kostyum-shim</td>
+                <td class="table-data didline-td">
+                  02 / 10/ 2023
+                  <span class="tooltiptext">1 oy qoldi</span>
+                </td>
+                <td class="table-data getOrder-td">25 / 06 / 2023</td>
+                <td class="table-data">100 $</td>
+                <td class="table-data last-td">
+                  <img
+                    src="./assets/icons/more_vert_FILL0_wght400_GRAD0_opsz48.svg"
+                    alt=""
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
-
-  <script src="./js/const.js"></script>
-  <script src="js/admin.js"></script>
-</body>
-
+    <script src="./js/modal.js"></script>
+  </body>
 </html>
