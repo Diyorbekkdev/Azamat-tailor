@@ -1,6 +1,34 @@
 const openModal = document.querySelector(".add-order-btn");
 const modalOverlay = document.querySelector(".modal-overlay");
 const modalCloseBtn = document.querySelector(".close");
+const click = document.getElementById("click");
+const clickModal = document.querySelector(".clickModal");
+const exitModal = document.querySelector(".exit");
+/*<!-- ======================================================== -->*/
+function clickActive() {
+  click.addEventListener("click", function () {
+    clickModal.classList.add("clickModalActive");
+  });
+}
+function clickOff() {
+  exitModal.addEventListener("click", function () {
+    clickModal.classList.remove("clickModalActive");
+  });
+}
+function escOff() {
+  document.addEventListener("keydown", function () {
+    clickModal.classList.remove("clickModalActive");
+  });
+}
+window.addEventListener("click", function (e) {
+  if (e.target == exitModal || e.target == clickModal) {
+    clickModal.classList.remove("clickModalActive");
+  }
+});
+clickActive();
+clickOff();
+escOff();
+/*<!-- ======================================================== -->*/
 
 openModal.addEventListener("click", modalActive);
 
@@ -17,8 +45,6 @@ window.addEventListener("click", function (e) {
     remove();
   }
 });
-
-
 
 let choices = [
   "Diyorbek",
@@ -82,7 +108,3 @@ function ListItemGenerator() {
 }
 
 inputTxt.addEventListener("keyup", ListItemGenerator);
-
-document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("phone").mask("+998(99)999-99-99");
-});
