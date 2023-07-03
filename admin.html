@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Manager page</title>
     <link rel="stylesheet" href="./css/admin.min.css" />
-    <link rel="stylesheet" href="./css/modal.min.css">
   </head>
   <body>
     <header id="admin-header">
@@ -18,6 +17,7 @@
           </div>
           <div class="search">
             <input
+              required
               type="search"
               placeholder="Qidirish . . ."
               id="search"
@@ -35,76 +35,107 @@
       </div>
     </header>
     <div class="modal-overlay">
-      <div id="modal" class="modal">
-        <div class="modal__wrapper">
-          <h1>Buyurtma Olish</h1>
-          <div class="form__group">
-            <label for="Mijoz">Mijoz</label>
-            <div class="search__wrapper">
-              <div class="search__bar_wrapper">
-                <div class="search-bar">
-                  <input
-                    autocomplete="additional-name"
-                    id="inputTxt"
-                    type="text"
-                    placeholder="Search ..."
-                  />
-                  <i class="bi bi-search"></i>
+      <div id="modal" class="modal admin-modal">
+        <div class="modal-wrapper add-order-modal">
+          <div class="modal-header">
+            <h1>Buyurtma olish</h1>
+            <img id="close" src="./assets/icons/close.svg" alt="close" />
+          </div>
+
+          <div class="modal-body">
+            <form>
+              <div class="form-item mijoz-wrapper">
+                <div class="mijoz">
+                  <label for="mijoz">Mijoz</label>
+                  <input required type="text" id="mijoz" />
                 </div>
-                <div class="customer_list"></div>
+                <p class="yangi-btn" onclick="openYangiModal()">Yangi</p>
               </div>
-              <button class="btn add__customer">Yangi</button>
-            </div>
+              <div class="form-item product-wrapper">
+                <label for="product-textarea">Buyurtma</label>
+                <textarea
+                  required
+                  name="product-textarea"
+                  id="product-textarea"
+                  style="resize: vertical; max-height: 200px; min-height: 50px"
+                ></textarea>
+              </div>
+              <div class="form-item endDate-wrapper">
+                <label for="endDate">Muddat</label>
+                <input required type="date" name="endDate" id="endDate" />
+              </div>
+              <div class="form-item price-wrapper">
+                <label for="price">Narx</label>
+                <input
+                  required
+                  step="100"
+                  type="number"
+                  name="price"
+                  id="price"
+                  placeholder="100 000 so'm"
+                  min="0"
+                />
+              </div>
+              <div class="form-item priority">
+                <label for="priority">Priority</label>
+                <input type="checkbox" name="priority" id="priority" />
+              </div>
+              <div class="form-item notes-wrapper">
+                <label for="order-notes">Izoh</label>
+                <textarea
+                  name="order-notes"
+                  id="order-notes"
+                  style="resize: vertical; max-height: 200px; min-height: 50px"
+                ></textarea>
+              </div>
+              <div class="confirm-box">
+                <button class="confirm" type="submit">Tasdiqlash</button>
+              </div>
+            </form>
           </div>
-          <div class="form__group">
-            <label class="order" for="order">Buyurtma</label>
-            <textarea
-              class="order__textarea"
-              name="order"
-              id="order"
-              cols="30"
-              rows="10"
-              placeholder="Buyurtma haqida malumotlar..."
-            ></textarea>
-          </div>
-          <div class="form__group">
-            <label for="muddat">Muddat</label>
-            <input
-              class="date"
-              type="date"
-              name="date"
-              required
-              aria-label="Kun/Oy/Yil"
+        </div>
+        <div class="modal-wrapper new-customer-modal">
+          <div class="modal-header">
+            <h1>Yangi mijoz</h1>
+            <img
+              id="closeYangi"
+              onclick="closeYangiModal()"
+              src="./assets/icons/close.svg"
+              alt="close"
             />
           </div>
-          <div class="form__group">
-            <label for="Price">Price</label>
-            <input
-              class="price"
-              type="text"
-              name="date"
-              required
-              placeholder="0.00 sum"
-            />
-          </div>
-          <div class="priority">
-            <label for="cbx" class="cbx">
-              Priority
-              <div class="checkmark">
-                <input type="checkbox" id="cbx" checked="checked" />
-                <div class="flip">
-                  <div class="front"></div>
-                  <div class="back">
-                    <svg viewBox="0 0 16 14" height="14" width="16">
-                      <path d="M2 8.5L6 12.5L14 1.5"></path>
-                    </svg>
+          <div class="modal-body">
+            <form>
+              <div class="form-item name-wrapper">
+                <label for="name">Ism</label>
+                <input required type="text" id="name" />
+              </div>
+              <div class="form-item telefon-box">
+                <p>Telefon</p>
+                <div class="phone-numbers">
+                  <div>
+                    <label for="phone1">1</label>
+                    <input required type="tel" placeholder="" />
+                  </div>
+                  <div>
+                    <label for="phone2">2</label>
+                    <input type="tel" placeholder="" />
                   </div>
                 </div>
               </div>
-            </label>
-          </div>
-          <div class="check__wrapper">
-            <button class="confirm">Tasdiqlash</button>
+              <div class="form-item notes-wrapper">
+                <label for="customer-notes">Qo’shimcha ma’lumot</label>
+                <textarea
+                  name="customer-notes"
+                  id="customer-notes"
+                  cols="10"
+                  style="max-height: 200px; min-height: 200px; resize: vertical"
+                ></textarea>
+              </div>
+              <div class="confirm-box">
+                <button class="confirm" type="submit">Tasdiqlash</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
