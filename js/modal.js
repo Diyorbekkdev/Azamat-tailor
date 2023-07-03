@@ -32,4 +32,3 @@ function closeYangiModal(){
   orderModal.style.transform = "scale(1)";
 }
 
-// =======AUTOCOMPLETE=======//
